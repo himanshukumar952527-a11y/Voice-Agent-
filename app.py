@@ -58,6 +58,10 @@ from agno.models.groq import Groq
 from agno.db.sqlite import SqliteDb
 
 
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
+
 # ==================================================
 # 1. CONFIGURATION
 # ==================================================
@@ -65,6 +69,7 @@ from agno.db.sqlite import SqliteDb
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent
+FRONTEND_DIR = ROOT / "frontend"
 
 BUSINESS_FILE = ROOT / "business_info.txt"
 DATA_DIR = ROOT.parent / "voice_agent_data"
@@ -1404,7 +1409,20 @@ def _port_in_use(host, port):
 
     # uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")
     # ---------------------------------------------------------------
+# ==================================================
+# 8. FRONTEND SERVING
+# ==================================================
 
+@app.get("/")
+async def serve_frontend():
+    return FileResponse(FRONTEND_DIR / "index.html")
+
+
+app.mount(
+    "/",
+    StaticFiles(directory=FRONTEND_DIR),
+    name="frontend"
+)
 
 if __name__ == "__main__":
 
