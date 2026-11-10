@@ -1,0 +1,32 @@
+BUSINESS NAME: ABC Clothing Store
+
+BUSINESS TYPE:
+Clothing wholesale and retail business.
+
+PRODUCT CATEGORIES:
+1. Men's Clothing
+2. Women's Clothing
+3. Kids' Clothing
+4. Winter Wear
+5. Ethnic Wear
+
+WHOLESALE POLICY:
+- Minimum bulk order: 50 pieces.
+- Bulk pricing depends on product category and quantity.
+- Orders above 500 pieces require special quotation.
+
+DELIVERY POLICY:
+- Standard delivery: 5-7 business days.
+- Delivery time depends on location and order quantity.
+
+PAYMENT POLICY:
+- 50% advance payment.
+- Remaining 50% before dispatch.
+
+RETURN POLICY:
+- Damaged products can be reported within 48 hours of delivery.
+- Returns require verification.
+
+CUSTOMER SUPPORT:
+- Business hours: 10 AM - 7 PM.
+- Complex complaints should be escalated to a human representative.

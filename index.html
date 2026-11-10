@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f6fa">
+
+    <title>ABC Clothing | AI Voice Support</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">A</div>
+
+            <div class="brand-info">
+                <h2>ABC Clothing</h2>
+                <span>AI Support Platform</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="section-label">WORKSPACE</p>
+
+            <div class="sidebar-link active">
+                <span>◉</span>
+                Voice Support
+            </div>
+
+            <div class="sidebar-link">
+                <span>▤</span>
+                Conversation History
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="section-label">AI AGENT</p>
+
+            <div class="agent-card">
+                <div class="agent-avatar">AI</div>
+
+                <div>
+                    <h3>Shivani</h3>
+
+                    <span class="agent-online">
+                        <span class="online-dot"></span>
+                        Available
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-footer-card">
+                <div class="footer-icon">✦</div>
+
+                <div>
+                    <strong>Powered by AI</strong>
+                    <p>Agno + Groq + Gnani AI</p>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="page-heading">
+                <h1>AI Voice Support</h1>
+                <p>Talk naturally with your AI-powered customer support assistant.</p>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span id="connection-status">Checking connection...</span>
+                </div>
+
+                <button
+                    class="new-session-button"
+                    id="new-session-button"
+                    type="button">
+                    + New Call
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section class="dashboard voice-dashboard">
+
+            <!-- MAIN CALL PANEL -->
+            <section class="chat-panel voice-panel">
+
+                <div class="chat-header">
+
+                    <div class="chat-agent-info">
+
+                        <div class="chat-avatar">AI</div>
+
+                        <div>
+                            <h2>ABC Customer Care</h2>
+                            <p>
+                                <span class="online-dot"></span>
+                                Voice Assistant · Shivani
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="chat-header-right">
+                        <span class="session-label">SESSION</span>
+                        <span id="session-id">abc-demo-customer-001</span>
+                    </div>
+
+                </div>
+
+
+                <!-- CALL INTERFACE -->
+                <div class="call-interface">
+
+                    <div class="call-agent">
+
+                        <div class="call-avatar-wrapper">
+                            <div class="call-avatar">
+                                <span>AI</span>
+                            </div>
+                            <span class="call-avatar-status"></span>
+                        </div>
+
+                        <h2>Shivani</h2>
+
+                        <p class="call-agent-description">
+                            Your AI Customer Support Assistant
+                        </p>
+
+                        <div class="call-status" id="vad-status">
+                            Ready to connect
+                        </div>
+
+                        <div class="call-timer" id="call-timer">
+                            00:00
+                        </div>
+
+                        <p class="call-timer-label">CALL DURATION</p>
+
+                    </div>
+
+
+                    <!-- VOICE VISUALIZER -->
+                    <div class="voice-visualizer" id="voice-visualizer">
+
+                        <div class="wave-bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <p>Voice activity visualization</p>
+
+                    </div>
+
+
+                    <!-- CALL CONTROLS -->
+                    <div class="call-controls">
+
+                        <div class="call-control-item">
+
+                            <button
+                                type="button"
+                                class="call-control-button mute-button"
+                                id="mute-button"
+                                aria-label="Mute microphone"
+                                disabled>
+                                <span id="mute-icon">🎙</span>
+                            </button>
+
+                            <span>Mute</span>
+
+                        </div>
+
+
+                        <div class="call-control-item main-call-control">
+
+                            <button
+                                type="button"
+                                class="call-control-button start-call-button"
+                                id="start-vad">
+                                <span>☎</span>
+                            </button>
+
+                            <span>Start Call</span>
+
+                        </div>
+
+
+                        <div class="call-control-item">
+
+                            <button
+                                type="button"
+                                class="call-control-button end-call-button"
+                                id="stop-vad"
+                                disabled>
+                                <span>✕</span>
+                            </button>
+
+                            <span>End Call</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="call-disclaimer">
+                        Your microphone will be accessed only after you start a call.
+                    </p>
+
+                </div>
+
+
+                <!-- LIVE TRANSCRIPT -->
+                <section class="transcript-section">
+
+                    <div class="transcript-header">
+
+                        <div>
+                            <h3>Live Conversation</h3>
+                            <p>Real-time speech transcription</p>
+                        </div>
+
+                        <span class="live-indicator">
+                            <span class="online-dot"></span>
+                            LIVE
+                        </span>
+
+                    </div>
+
+                    <div class="transcript-container">
+
+                        <pre id="transcript-output">Your conversation will appear here when the call starts...</pre>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- RIGHT PANEL -->
+            <aside class="details-panel">
+
+                <!-- AGENT STATUS -->
+                <section class="info-card">
+
+                    <div class="card-heading">
+                        <h3>Agent Status</h3>
+                        <span class="card-icon">✦</span>
+                    </div>
+
+                    <div class="agent-status-content">
+
+                        <div class="large-agent-avatar">AI</div>
+
+                        <div>
+                            <h4 id="agent-status">Ready</h4>
+
+                            <p id="agent-status-description">
+                                Waiting for an incoming call.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CALL INFORMATION -->
+                <section class="info-card">
+
+                    <div class="card-heading">
+                        <h3>Call Information</h3>
+                        <span class="card-icon">◷</span>
+                    </div>
+
+                    <div class="memory-content">
+
+                        <div class="memory-icon">☎</div>
+
+                        <div>
+                            <h4 id="memory-session">No active call</h4>
+
+                            <p id="memory-note">
+                                Start a call to begin a new customer session.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- INTENT -->
+                <section class="info-card">
+
+                    <div class="card-heading">
+                        <h3>Detected Intent</h3>
+                        <span class="card-icon">⌕</span>
+                    </div>
+
+                    <div class="intent-content">
+
+                        <span class="intent-badge" id="detected-intent">
+                            General Inquiry
+                        </span>
+
+                        <p>
+                            Customer intent will be identified during the conversation.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CAPABILITIES -->
+                <section class="info-card">
+
+                    <div class="card-heading">
+                        <h3>Agent Capabilities</h3>
+                        <span class="card-icon">⚙</span>
+                    </div>
+
+                    <ul class="capabilities-list">
+
+                        <li>
+                            <span class="capability-check">✓</span>
+                            Real-Time Voice Interaction
+                        </li>
+
+                        <li>
+                            <span class="capability-check">✓</span>
+                            Hindi & Hinglish Support
+                        </li>
+
+                        <li>
+                            <span class="capability-check">✓</span>
+                            Business Information
+                        </li>
+
+                        <li>
+                            <span class="capability-check">✓</span>
+                            Bulk Order Assistance
+                        </li>
+
+                        <li>
+                            <span class="capability-check">✓</span>
+                            Conversation Memory
+                        </li>
+
+                        <li>
+                            <span class="capability-pending">○</span>
+                            Call Summary
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <!-- TECHNOLOGY -->
+                <section class="tech-card">
+
+                    <h3>Technology Stack</h3>
+
+                    <div class="tech-tags">
+                        <span>Agno</span>
+                        <span>Groq</span>
+                        <span>Flask</span>
+                        <span>SQLite</span>
+                        <span>Prisma STT</span>
+                        <span>Timbre TTS</span>
+                        <span>Silero VAD</span>
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <span>ABC Clothing · AI Voice Support</span>
+            <span>Real-Time Conversational Voice Agent</span>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Hidden compatibility elements for existing app.js.
+     The text-chat interface is not displayed. -->
+<div hidden>
+    <div id="messages"></div>
+    <textarea id="message-input"></textarea>
+    <button id="send-button" type="button"></button>
+</div>
+
+
+<!-- ONNX Runtime -->
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.wasm.min.js"></script>
+
+<!-- Silero VAD -->
+<script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad-web@0.0.31/dist/bundle.min.js"></script>
+
+<!-- Existing JavaScript -->
+<script src="app.js"></script>
+<script src="tts_playback.js"></script>
+<script src="vad.js"></script>
+
+</body>
+</html>
