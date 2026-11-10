@@ -5,5 +5,9 @@ uvicorn[standard]
 groq
 gnani-vachana
 python-dotenv
-sqlalchemy
+sqlalchemy[asyncio]
 aiosqlite
+greenlet
+websockets
+httpx
+pydantic
