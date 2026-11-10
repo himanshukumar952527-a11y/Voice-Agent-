@@ -1372,33 +1372,58 @@ def _port_in_use(host, port):
         return sock.connect_ex((host, port)) == 0
 
 
+# if __name__ == "__main__":
+    # # For local host -------
+    
+    # import sys
+    # import uvicorn
+
+    # # On Windows a second server can silently start on a port that an old
+    # # one already holds, and every request then goes to the OLD process.
+    # if _port_in_use("127.0.0.1", 8000):
+
+    #     print("\n" + "!" * 60)
+    #     print(" PORT 8000 IS ALREADY IN USE, so an OLD server is still running.")
+    #     print(" Stop it first, then start this file again:")
+    #     print("     netstat -ano | findstr :8000")
+    #     print("     taskkill /PID <PID> /F")
+    #     print(" (or:  Get-Process python | Stop-Process -Force)")
+    #     print("!" * 60 + "\n")
+
+    #     sys.exit(1)
+
+    # print("\n======================================")
+    # print(" ABC CLOTHING - REAL TIME VOICE AGENT")
+    # print("======================================")
+    # print(f"Version: {APP_VERSION}   PID: {os.getpid()}")
+    # print("Server: http://127.0.0.1:8000")
+    # print("Voice : ws://127.0.0.1:8000/ws/voice")
+    # print("LLM:", GROQ_MODEL)
+    # print("TTS:", TTS_VOICE, TTS_MODEL)
+    # print("======================================\n")
+
+    # uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")
+    # ---------------------------------------------------------------
+
+
 if __name__ == "__main__":
 
-    import sys
     import uvicorn
 
-    # On Windows a second server can silently start on a port that an old
-    # one already holds, and every request then goes to the OLD process.
-    if _port_in_use("127.0.0.1", 8000):
-
-        print("\n" + "!" * 60)
-        print(" PORT 8000 IS ALREADY IN USE, so an OLD server is still running.")
-        print(" Stop it first, then start this file again:")
-        print("     netstat -ano | findstr :8000")
-        print("     taskkill /PID <PID> /F")
-        print(" (or:  Get-Process python | Stop-Process -Force)")
-        print("!" * 60 + "\n")
-
-        sys.exit(1)
+    PORT = int(os.environ.get("PORT", 8000))
 
     print("\n======================================")
     print(" ABC CLOTHING - REAL TIME VOICE AGENT")
     print("======================================")
     print(f"Version: {APP_VERSION}   PID: {os.getpid()}")
-    print("Server: http://127.0.0.1:8000")
-    print("Voice : ws://127.0.0.1:8000/ws/voice")
+    print(f"Server: Port {PORT}")
     print("LLM:", GROQ_MODEL)
     print("TTS:", TTS_VOICE, TTS_MODEL)
     print("======================================\n")
 
-    uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=PORT,
+        log_level="info"
+    )

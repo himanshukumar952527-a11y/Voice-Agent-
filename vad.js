@@ -38,11 +38,16 @@ window.addEventListener("pagehide", () =>
 // 1. CONFIGURATION
 // =====================================================
 
-const WS_BASE_URL = (
-    typeof API_BASE_URL !== "undefined"
-        ? API_BASE_URL
-        : "http://127.0.0.1:8000"
-).replace(/^http/, "ws");
+// const WS_BASE_URL = (
+//     typeof API_BASE_URL !== "undefined"
+//         ? API_BASE_URL
+//         : "http://127.0.0.1:8000"
+// ).replace(/^http/, "ws");
+
+// const VOICE_WS_URL = `${WS_BASE_URL}/ws/voice`;
+
+
+const WS_BASE_URL = window.location.origin.replace(/^http/, "ws");
 
 const VOICE_WS_URL = `${WS_BASE_URL}/ws/voice`;
 
