@@ -5,3 +5,5 @@ uvicorn[standard]
 groq
 gnani-vachana
 python-dotenv
+sqlalchemy
+aiosqlite
